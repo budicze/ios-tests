@@ -15,7 +15,7 @@ test_h20 () {
 	PID=$!
 	wait $!
 	STATUS=$?
-	REMAINING="`ps -ef | grep \`whoami\` | grep h2o | wc -l`"
+	REMAINING=`ps -ef | tail -n+2 | grep \`whoami\` | awk '{print $8}' | grep ./h2o | wc -l`
 	REMAINING=`echo "$REMAINING-1" | bc`
 	if [ "$STATUS" -ne 0 ]; then
 		echo "Process has ended unsuccessfully with status $STATUS!" >&2
