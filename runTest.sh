@@ -39,7 +39,7 @@ test_h20 () {
 
 	pkill -9 h2o
 
-	testsuite/test $MOLECULES
+	ios-tests/test $MOLECULES
 	if [ $? -ne 0 ]; then
 		RET=1
 	fi
@@ -62,7 +62,7 @@ fi
 
 trap "echo ; echo 'Ending on request!' ; pkill -9 h2o ; exit 2" SIGINT
 
-(cd testsuite; make)
+(cd ios-tests; make)
 make
 DIR="`pwd`"
 
