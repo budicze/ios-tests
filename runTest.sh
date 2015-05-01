@@ -31,6 +31,7 @@ test_h20 () {
 
 	if [ ! -z "$SHM" ]; then
 		echo "Not-freed shared memory segment found!" >&2
+		ipcrm -m `ipcs -p | grep \`whoami\` | grep $PID | awk '{print $1}'`
 		RET=1
 	fi
 
