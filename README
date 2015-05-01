@@ -1,0 +1,19 @@
+IOS Projekt 2 testy
+===================
+
+Instalace:
+----------
+
+Spustit násludující příkaz v adresáři projektu:
+
+git clone https://github.com/budicze/ios-tests.git
+
+Spuštění:
+---------
+
+ios-tests/runTest.sh [POCET ITERACI] [POCET MOLEKUL]
+
+- POCET ITERACI - nastavení počet spuštění programu - pokud zadáte 10, postupně se program spustí a otestuje 1Ox
+- POCET MOLEKUL - nastaví počet molekul, které se budou při testech vytvářet
+
+Parametry jsou nepovinné, ve výchozím stavu se provede 10 iterací, během každé se vytvoří 1000 molekul.
