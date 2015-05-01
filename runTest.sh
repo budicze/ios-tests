@@ -3,7 +3,7 @@
 #### CONFIGURATION
 
 # Default iteration count (can be overwritten by 1st parameter)
-DEFAULT_ITERATIONS=100
+DEFAULT_ITERATIONS=10
 # Default molecule count (can be overwritten by 2nd parameter)
 DEFAULT_MOLECULES=1000
 
