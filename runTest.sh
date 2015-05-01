@@ -2,9 +2,6 @@
 
 #### CONFIGURATION
 
-# Specifies how long can process run until it's killed
-MAXTIME=60
-
 # Default iteration count (can be overwritten by 1st parameter)
 DEFAULT_ITERATIONS=100
 # Default molecule count (can be overwritten by 2nd parameter)
