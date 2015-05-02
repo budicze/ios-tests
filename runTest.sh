@@ -15,7 +15,7 @@ test_h20 () {
 	PID=$!
 	wait $!
 	STATUS=$?
-	REMAINING=`ps -ef | tail -n+2 | grep \`whoami\` | awk '{print $8}' | grep ./h2o | wc -l`
+	REMAINING=`ps -ef | tail -n+2 | grep \`whoami\` | awk '{print $8}' | grep ^./h2o | wc -l`
 	REMAINING=`echo "$REMAINING-1" | bc`
 	if [ "$STATUS" -ne 0 ]; then
 		echo "Process has ended unsuccessfully with status $STATUS!" >&2
@@ -35,7 +35,7 @@ test_h20 () {
 		RET=1
 	fi
 
-	pkill -9 h2o
+	pkill -9 -u `whoami` h2o
 
 	ios-tests/test $MOLECULES
 	if [ $? -ne 0 ]; then
@@ -58,13 +58,13 @@ if [ $# -ge 2 ]; then
 	else MOLECULES="$DEFAULT_MOLECULES"
 fi
 
-trap "echo ; echo 'Ending on request!' ; pkill -9 h2o ; exit 2" SIGINT
+trap "echo ; echo 'Ending on request!' ; pkill -9 -u `whoami` h2o ; exit 2" SIGINT
 
 (cd ios-tests; make)
 make
 DIR="`pwd`"
 
-pkill -9 h2o
+pkill -9 -u `whoami` h2o
 	
 #cd ..
 
