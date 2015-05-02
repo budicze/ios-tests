@@ -58,7 +58,7 @@ if [ $# -ge 2 ]; then
 	else MOLECULES="$DEFAULT_MOLECULES"
 fi
 
-trap "echo ; echo 'Ending on request!' ; pkill -9 -u `whoami` h2o ; exit 2" SIGINT
+trap "echo ; echo 'Ending on request!' ; pkill -9 -u `whoami` h2o ; exit 2" 2
 
 (cd ios-tests; make)
 make
